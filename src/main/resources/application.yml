@@ -1,0 +1,9 @@
+spring:
+  datasource:
+#  db? ????
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
+    #blog db? seoul???? ??
+    username: cos
+    password: cos1234
+    #username cos password cos1234
