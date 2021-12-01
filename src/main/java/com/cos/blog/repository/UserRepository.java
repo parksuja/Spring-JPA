@@ -11,5 +11,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface UserRepository extends JpaRepository<User,Integer> {
     //User테이블을 관리하고 primary key는 Integer 숫자
     //기본적인 CRUD extends해서 다 들고온다.
-
+    
+    //JPA Naming 쿼리
+    // SELECT * FROM user WHERE username = ? AND password =?;
+    User findByUsernameAndPassword(String username,String password);
 }
