@@ -3,7 +3,9 @@ let index= {
        $("#btn-save").on("click",()=>{
            this.save();
        })
-
+        $("#btn-update").on("click",()=>{
+            this.update();
+        })
     },
 
     save:function (){
@@ -35,6 +37,27 @@ let index= {
             alert(JSON.stringify(error));
         });
     },
+    update:function (){
+
+        let data ={
+            id:$("#id").val(),
+            username:$("#username").val(),
+            password: $("#password").val(),
+            email: $("#email").val()
+
+        };
+        $.ajax({
+            type:"PUT",
+            url:"/user",
+            data:JSON.stringify(data),  //JSON문자열로 보내준다. http body데이터
+            contentType:"application/json;charset=utf-8", //body데이터가 어떤 타입인지
+        }).done(function(resp){
+            alert("회원수정이 완료");
+            location.href="/";
+        }).fail(function(error){
+            alert(JSON.stringify(error));
+        });
+    }
 }
 
 index.init();
